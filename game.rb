@@ -24,7 +24,7 @@ class CellGame
       system "clear"
       @grid = next_gen
       puts "tick - #{tick += incr}"
-      self.show_board
+      show_matrix
     end
   end
 
@@ -32,7 +32,21 @@ class CellGame
      puts @grid.map { |row| row.map { |cell| cell ? '*' : ' ' }.inspect }
   end
 
+  def show_matrix(type='dotted')
+    for i in 0..@size-1 do
+      for j in 0..@size do
+        if type === 'dotted'
+          print "#{@grid[i][j] ? "*" : " "}"
+        else
+          print "#{@grid[i][j] ? "█" : "▒"}"
+        end
+      end
+      puts ""
+    end
+
+  end
+
 end
 
-cg = CellGame.new 40
+cg = CellGame.new 45
 cg.play
