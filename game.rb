@@ -43,9 +43,7 @@ class CellGame
       end
       puts ""
     end
-
   end
-
 end
 
 cg = CellGame.new 45
