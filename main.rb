@@ -1,26 +1,24 @@
 require_relative 'lib/cell'
 require_relative 'lib/board'
 
+class Game
+  def call(width, height, cell, cells = [])
+    system('clear')
+    grid = Board.new(width, height, cell, cells)
+    puts grid
 
-if true
+    until grid.lifeness?
+      grid.evolve
 
-  board = Board.new(4, 4)
-  board.create_board(Cell)
-
-  tick = 0
-  incr = 1
-
-  loop do
-
-    p board.is_exist_in_archive?(incr)
-
-    sleep(0.3)
-
-    puts "tick - #{tick += incr}"
-    board.show_board
-   
-    board.update_board 
-    board.show_board
-    #board.show_matrix
+      sleep 0.5
+      system('clear')
+      puts grid
+    end
   end
 end
+
+
+game = Game.new.call(10, 10, Cell, [])
+
+
+puts game 
