@@ -14,7 +14,7 @@ class Board
     @grid = @cells.each_slice(width).to_a
 
     cells.each { |coordinate| @grid.dig(*coordinate).live!}
-    @grid_history = Array.new()
+    @grid_history = []
   end
 
   def to_s
