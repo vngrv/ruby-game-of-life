@@ -1,24 +1,4 @@
-require_relative 'lib/cell'
-require_relative 'lib/board'
+require_relative 'lib/game'
 
-class Game
-  def call(width, height, cell, cells = [])
-    system('clear')
-    grid = Board.new(width, height, cell, cells)
-    puts grid
+Game.new.call(10, 10, Cell, [])
 
-    until grid.lifeness?
-      grid.evolve
-
-      sleep 0.5
-      system('clear')
-      puts grid
-    end
-  end
-end
-
-
-game = Game.new.call(10, 10, Cell, [])
-
-
-puts game 
