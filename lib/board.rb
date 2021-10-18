@@ -1,5 +1,5 @@
-class Board  
-  RELATIVE_NEIGHBOUR_COORDINATES = { 
+class Board
+  RELATIVE_NEIGHBOUR_COORDINATES = {
     north: [-1, 0].freeze, north_east: [-1, 1].freeze,
     east: [0, 1].freeze, south_east: [1, 1].freeze,
     south: [1, 0].freeze, south_west: [1, -1].freeze,
@@ -44,14 +44,10 @@ class Board
   end
 
   def save_history
-    if @grid_history.length  < 4 
+    if @grid_history.length  < 4
       @grid_history << @grid
       @grid_history.delete(@grid_history.first)
     end
-
-    p @grid_history
-
-
   end
 
   def stagnation?
